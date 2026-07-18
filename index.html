@@ -4,14 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Presentation Download</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
@@ -20,318 +13,135 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
-
             height: 100vh;
-
             display: flex;
-
             justify-content: center;
-
             align-items: center;
-
             overflow: hidden;
+            position: relative;
+            background: linear-gradient(180deg, #F2F2F7 0%, #E8E8ED 100%);
+        }
 
+        .glow {
+            position: absolute;
+            inset: -20%;
+            z-index: 0;
             background:
-                radial-gradient(circle at 10% 20%, #7FC8FF 0%, transparent 30%),
-                radial-gradient(circle at 90% 80%, #A48CFF 0%, transparent 35%),
-                linear-gradient(180deg, #F5F5F7, #ECECEC);
-
+                radial-gradient(circle at 20% 25%, #8FD3FF 0%, transparent 42%),
+                radial-gradient(circle at 80% 20%, #C9B6FF 0%, transparent 42%),
+                radial-gradient(circle at 75% 80%, #FFB3C6 0%, transparent 42%),
+                radial-gradient(circle at 20% 80%, #B7F0C4 0%, transparent 42%);
+            filter: blur(70px) saturate(160%);
+            opacity: 0.85;
+            animation: hueShift 16s ease-in-out infinite, drift 22s ease-in-out infinite;
         }
 
-        .blur {
-
-            position: absolute;
-
-            width: 450px;
-            height: 450px;
-
-            border-radius: 50%;
-
-            background: #007AFF22;
-
-            filter: blur(100px);
-
-            top: -150px;
-            left: -120px;
-
-            animation: float 12s ease-in-out infinite;
-
+        @keyframes hueShift {
+            0% { filter: blur(70px) saturate(160%) hue-rotate(0deg); }
+            50% { filter: blur(70px) saturate(180%) hue-rotate(140deg); }
+            100% { filter: blur(70px) saturate(160%) hue-rotate(360deg); }
         }
 
-        .blur2 {
-
-            position: absolute;
-
-            width: 380px;
-            height: 380px;
-
-            border-radius: 50%;
-
-            background: #8E8EFF33;
-
-            filter: blur(100px);
-
-            right: -120px;
-            bottom: -120px;
-
-            animation: float2 14s ease-in-out infinite;
-
-        }
-
-        @keyframes float {
-
-            50% {
-
-                transform: translate(50px, 40px);
-
-            }
-
-        }
-
-        @keyframes float2 {
-
-            50% {
-
-                transform: translate(-40px, -30px);
-
-            }
-
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(4%, -3%) scale(1.08); }
+            66% { transform: translate(-3%, 4%) scale(1.05); }
         }
 
         .card {
-
             position: relative;
-
-            width: 430px;
-
-            padding: 45px;
-
-            background: rgba(255, 255, 255, .72);
-
-            backdrop-filter: blur(30px);
-
-            -webkit-backdrop-filter: blur(30px);
-
-            border: 1px solid rgba(255, 255, 255, .8);
-
-            border-radius: 35px;
-
+            z-index: 1;
+            width: 340px;
+            padding: 36px 32px;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 26px;
             box-shadow:
-
-                0 20px 60px rgba(0, 0, 0, .12),
-
-                inset 0 1px 0 rgba(255, 255, 255, .9);
-
+                0 20px 50px rgba(0, 0, 0, 0.14),
+                inset 0 1px 0 rgba(255, 255, 255, 0.85);
             text-align: center;
-
-            animation: show .7s ease;
-
+            animation: show 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @keyframes show {
-
-            from {
-
-                opacity: 0;
-
-                transform: translateY(25px) scale(.95);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform: none;
-
-            }
-
+            from { opacity: 0; transform: translateY(20px) scale(0.96); }
+            to { opacity: 1; transform: none; }
         }
 
         .icon {
-
-            width: 95px;
-
-            height: 95px;
-
-            margin: auto;
-
-            border-radius: 28px;
-
+            width: 78px;
+            height: 78px;
+            margin: 0 auto 20px;
+            border-radius: 19px;
             display: flex;
-
             justify-content: center;
-
             align-items: center;
-
-            font-size: 42px;
-
+            font-size: 32px;
             color: white;
-
-            background: linear-gradient(135deg, #007AFF, #38BDF8);
-
-            box-shadow: 0 15px 35px rgba(0, 122, 255, .35);
-
-            margin-bottom: 25px;
-
+            background: linear-gradient(160deg, #FF6B57 0%, #D24726 100%);
+            box-shadow: 0 10px 24px rgba(210, 71, 38, 0.38),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
         }
 
         h1 {
-
-            font-size: 33px;
-
-            font-weight: 800;
-
-            color: #111827;
-
-            margin-bottom: 12px;
-
-        }
-
-        .subtitle {
-
-            font-size: 16px;
-
-            color: #6B7280;
-
-            line-height: 1.7;
-
-            margin-bottom: 35px;
-
-        }
-
-        .file {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            padding: 16px 20px;
-
-            background: white;
-
-            border-radius: 18px;
-
-            margin-bottom: 30px;
-
-            box-shadow: 0 8px 25px rgba(0, 0, 0, .05);
-
-        }
-
-        .file i {
-
-            color: #D24726;
-
-            font-size: 28px;
-
-        }
-
-        .file span {
-
-            flex: 1;
-
-            text-align: left;
-
-            margin-left: 15px;
-
+            font-size: 19px;
             font-weight: 600;
-
-            color: #333;
-
+            letter-spacing: -0.01em;
+            color: #1C1C1E;
+            margin-bottom: 26px;
         }
 
         .btn {
-
             display: flex;
-
             justify-content: center;
-
             align-items: center;
-
-            gap: 10px;
-
-            padding: 16px;
-
-            border-radius: 18px;
-
-            background: #007AFF;
-
+            gap: 8px;
+            padding: 14px;
+            border-radius: 15px;
+            background: linear-gradient(180deg, #0A84FF 0%, #0066D6 100%);
             color: white;
-
             font-weight: 600;
-
+            font-size: 16px;
             text-decoration: none;
-
-            transition: .3s;
-
-            box-shadow: 0 15px 30px rgba(0, 122, 255, .35);
-
+            transition: transform 0.15s ease, filter 0.15s ease;
+            box-shadow: 0 8px 20px rgba(10, 132, 255, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
         }
 
         .btn:hover {
-
-            transform: translateY(-4px);
-
-            background: #0062E6;
-
+            transform: translateY(-2px);
+            filter: brightness(1.04);
         }
 
-        .footer {
-
-            margin-top: 22px;
-
-            font-size: 13px;
-
-            color: #8A8A8A;
-
+        .btn:active {
+            transform: scale(0.98);
+            filter: brightness(0.96);
         }
     </style>
-
 </head>
 
 <body>
 
-    <div class="blur"></div>
-    <div class="blur2"></div>
+    <div class="glow"></div>
 
     <div class="card">
-
         <div class="icon">
             <i class="fa-solid fa-file-powerpoint"></i>
         </div>
 
-        <h1>Presentation</h1>
+        <h1>Role of Physics in CSE final.pptx</h1>
 
-        <p class="subtitle">
-            All Today Files..............
-        </p>
-
-        <div class="file">
-
-            <i class="fa-solid fa-file-powerpoint"></i>
-
-            <span>File.pptx</span>
-
-        </div>
-
-        <a href="Role of Physics in CSE final.pptx" download class="btn">
-
-            <i class="fa-solid fa-download"></i>
-
+        <a href=".pptx" download class="btn">
+            <i class="fa-solid fa-arrow-down"></i>
             Download
-
         </a>
-
-        <div class="footer">
-            haaaaaaaaaaaaaaaaaaaaaaaaaaa
-        </div>
-
     </div>
 
 </body>
